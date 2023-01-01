@@ -32,4 +32,9 @@
     #error "Unknown Platform"
 #endif
 
+
+#if defined(DM3_PLATFORM_OSX) || defined(DM3_PLATFORM_LINUX) || defined(DM3_PLATFORM_WINDOWS)
+    #define DM3_GLFW_COMPATIBLE
+#endif
+
 #endif

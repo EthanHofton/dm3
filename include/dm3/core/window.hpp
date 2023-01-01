@@ -36,6 +36,9 @@ public:
     virtual void setHeight(const int& t_height) = 0;
     virtual void setTitle(const std::string& t_title) = 0;
 
+    virtual void* getNativeWindow() = 0;
+
+
 protected:
 
     windowProps m_props;

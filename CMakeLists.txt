@@ -5,9 +5,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 file(GLOB SOURCES "src/*.cpp")
-message(${SOURCES})
+
+add_subdirectory("lib/glfw")
 
 add_library(dm3 ${SOURCES})
 
 # add include directory
 target_include_directories(dm3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(dm3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/util/include)
+target_include_directories(dm3 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lib/glfw/include)
+
+# link libaries
+target_link_libraries(dm3 PRIVATE glfw)

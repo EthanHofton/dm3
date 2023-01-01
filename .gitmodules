@@ -1,3 +1,6 @@
 [submodule "lib/util"]
 	path = lib/util
 	url = https://www.github.com/EthanHofton/util
+[submodule "lib/glfw"]
+	path = lib/glfw
+	url = https://www.github.com/glfw/glfw
