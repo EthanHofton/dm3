@@ -1,4 +1,4 @@
-#include <dm3/concrete/windowsWindow.hpp>
+#include <dm3/windows/windowsWindow.hpp>
 
 namespace dm3 {
 

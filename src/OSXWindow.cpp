@@ -1,4 +1,4 @@
-#include <dm3/concrete/OSXWindow.hpp>
+#include <dm3/osx/OSXWindow.hpp>
 
 namespace dm3 {
 

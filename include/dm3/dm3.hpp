@@ -3,8 +3,8 @@
 
 // * all includes go here
 #include "core/window.hpp"
-#include "concrete/OSXWindow.hpp"
-#include "concrete/linuxWindow.hpp"
-#include "concrete/windowsWindow.hpp"
+#include "osx/OSXWindow.hpp"
+#include "linux/linuxWindow.hpp"
+#include "windows/windowsWindow.hpp"
 
 #endif
