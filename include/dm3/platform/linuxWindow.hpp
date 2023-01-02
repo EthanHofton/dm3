@@ -1,28 +1,25 @@
-#ifndef DM3_CORE_LINUXWINDOW_HPP
-#define DM3_CORE_LINUXWINDOW_HPP
+#ifndef DM3_PLATFORM_LINUX_WINDOW_HPP
+#define DM3_PLATFORM_LINUX_WINDOW_HPP
 
 #include <dm3/core/window.hpp>
 #include <dm3/core/platformDetect.hpp>
+#include <dm3/windowDrivers/windowDriverGLFW.hpp>
 
 namespace dm3 {
 
 #ifdef DM3_PLATFORM_LINUX
+#ifdef DM3_GLFW_COMPATIBLE
 
 class LinuxWindow : public window {
 public:
 
-    ~LinuxWindow();
+    ~LinuxWindow() override;
     LinuxWindow(const window::windowProps& t_props);
-
-    void setWidth(const int& t_width);
-    void setHeight(const int& t_height);
-    void setTitle(const std::string& t_title);
-
 };
 
+#endif
 #endif
 
 }
 
 #endif
-

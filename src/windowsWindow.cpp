@@ -1,26 +1,19 @@
-#include <dm3/windows/windowsWindow.hpp>
+#include <dm3/platform/windowsWindow.hpp>
 
 namespace dm3 {
 
 #ifdef DM3_PLATFORM_WINDOWS
+#ifdef DM3_GLFW_COMPATIBLE
 
 std::shared_ptr<window> window::createWindow(const windowProps& t_props) {
     return std::make_shared<WindowsWindow>(t_props);
 }
 
-WindowsWindow::WindowsWindow(const window::windowProps& t_props) : window(t_props) { throw "windows not impl yet"; }
+WindowsWindow::WindowsWindow(const window::windowProps& t_props) : window(t_props, std::make_shared<windowDriverGLFW>()) {}
 WindowsWindow::~WindowsWindow() {}
 
-void WindowsWindow::setWidth(const int& t_width) {
-    m_props.m_width = t_width; 
-}
-void WindowsWindow::setHeight(const int& t_height) {
-    m_props.m_height = t_height; 
-}
-void WindowsWindow::setTitle(const std::string& t_title) {
-    m_props.m_title = t_title; 
-}
-
+#endif
 #endif
 
 }
+

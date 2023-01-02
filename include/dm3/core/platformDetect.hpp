@@ -1,6 +1,3 @@
-#ifndef DM3_CORE_PLATFORMDETECT_HPP
-#define DM3_CORE_PLATFORMDETECT_HPP
-
 #ifdef _WIN32
     #ifdef _WIN64
         #define DM3_PLATFORM_WINDOWS
@@ -18,6 +15,7 @@
 		#error "IOS simulator is not supported!"
 	#elif TARGET_OS_IPHONE == 1
 		#define DM3_PLATFORM_IOS
+        #error "iphone not supported"
 	#elif TARGET_OS_MAC == 1
 		#define DM3_PLATFORM_OSX
 	#else
@@ -37,4 +35,14 @@
     #define DM3_GLFW_COMPATIBLE
 #endif
 
+#if defined(DM3_PLATFORM_OSX) || defined(DM3_PLATFORM_LINUX) || defined(DM3_PLATFORM_WINDOWS)
+    #define DM3_SDL_COMPATIBLE
+#endif
+
+#if defined(DM3_PLATFORM_OSX)
+    #define DM3_COCOA_COMPATIBLE
+#endif
+
+#if defined(DM3_PLATFORM_WINDOWS)
+    #define DM3_WIN32_COMPATIBLE
 #endif

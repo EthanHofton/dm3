@@ -3,6 +3,8 @@
 
 #include <string>
 #include <memory>
+#include <glm/glm.hpp>
+#include <dm3/windowDrivers/windowDriver.hpp>
 
 namespace dm3 {
 
@@ -22,26 +24,32 @@ public:
 
 protected:
 
-    window(const windowProps& t_props) : m_props(t_props) {}
+    window(const windowProps& t_props, std::shared_ptr<windowDriver> t_driver);
 
 public:
 
-    virtual ~window() {}
+    virtual ~window();
 
-    inline int getWidth()  const { return m_props.m_width; }
-    inline int getHeight() const { return m_props.m_width; }
-    inline int getTitle()  const { return m_props.m_width; }
+    void run();
 
-    virtual void setWidth(const int& t_width) = 0;
-    virtual void setHeight(const int& t_height) = 0;
-    virtual void setTitle(const std::string& t_title) = 0;
+    inline void setWindowSize(const glm::vec2& t_size) { m_driver->setWindowSize(t_size); }
+    inline void setWindowPos(const glm::vec2& t_pos) { m_driver->setWindowPos(t_pos); }
+    inline void setWindowTitle(const std::string& t_title) { m_driver->setWindowTitle(t_title); }
+    inline void setWindowIcon(const std::string& t_iconFile) { m_driver->setWindowIcon(t_iconFile); }
+    inline void setWindowSwapInterval(const int& t_swapInterval) { m_driver->setWindowSwapInterval(t_swapInterval); }
 
-    virtual void* getNativeWindow() = 0;
+    inline glm::vec2 getWindowSize() const { return m_driver->getWindowSize(); }
+    inline glm::vec2 getWindowPos() const { return m_driver->getWindowPos(); }
+
+    inline void maxamizeWindow() { m_driver->maximizeWindow(); }
+    inline void minamizeWindow() { m_driver->minimizeWindow(); }
+    inline void restoreWindow() { m_driver->restoreWindow(); }
+    inline void focusWindow() { m_driver->focusWindow(); }
 
 
 protected:
 
-    windowProps m_props;
+    std::shared_ptr<windowDriver> m_driver;
 };
 
 }

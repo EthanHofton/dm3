@@ -1,10 +1,10 @@
-#ifndef DM3_DM3_HPP
-#define DM3_DM3_HPP
+#ifndef DM3_HPP
+#define DM3_HPP
 
 // * all includes go here
 #include "core/window.hpp"
-#include "osx/OSXWindow.hpp"
-#include "linux/linuxWindow.hpp"
-#include "windows/windowsWindow.hpp"
+#include "platform/OSXWindow.hpp"
+#include "platform/linuxWindow.hpp"
+#include "platform/windowsWindow.hpp"
 
 #endif
