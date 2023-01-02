@@ -3,6 +3,9 @@
 
 #include "windowDriver.hpp"
 #include <dm3/core/platformDetect.hpp>
+#include <dm3/events/windowEvent.hpp>
+#include <dm3/events/keyEvents.hpp>
+#include <dm3/events/mouseEvent.hpp>
 
 namespace dm3 {
 
@@ -39,6 +42,9 @@ public:
     virtual void maximizeWindow() override;
     virtual void restoreWindow() override;
     virtual void focusWindow() override;
+
+    virtual int keyCodeToDM3(const int& t_keyCode) const override;
+    virtual int mouseCodeToDM3(const int& t_mouseCode) const override;
 
 private:
 

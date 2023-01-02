@@ -1,10 +1,12 @@
 #ifndef DM3_CORE_WINDOW_HPP
 #define DM3_CORE_WINDOW_HPP
 
+#include <functional>
 #include <string>
 #include <memory>
 #include <glm/glm.hpp>
 #include <dm3/windowDrivers/windowDriver.hpp>
+#include <util/event.hpp>
 
 namespace dm3 {
 
@@ -37,6 +39,7 @@ public:
     inline void setWindowTitle(const std::string& t_title) { m_driver->setWindowTitle(t_title); }
     inline void setWindowIcon(const std::string& t_iconFile) { m_driver->setWindowIcon(t_iconFile); }
     inline void setWindowSwapInterval(const int& t_swapInterval) { m_driver->setWindowSwapInterval(t_swapInterval); }
+    inline void setEventCallback(windowDriver::callbackFn t_callback) { m_driver->setEventFunction(t_callback); }
 
     inline glm::vec2 getWindowSize() const { return m_driver->getWindowSize(); }
     inline glm::vec2 getWindowPos() const { return m_driver->getWindowPos(); }

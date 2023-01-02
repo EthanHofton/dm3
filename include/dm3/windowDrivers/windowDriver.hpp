@@ -1,6 +1,11 @@
 #ifndef DM3_WINDOW_DRIVERS_WINDOW_DRIVER_HPP
 #define DM3_WINDOW_DRIVERS_WINDOW_DRIVER_HPP
 
+#include <dm3/events/events.hpp>
+#include <dm3/events/mouseEvent.hpp>
+#include <dm3/events/keyEvents.hpp>
+#include <dm3/events/windowEvent.hpp>
+#include <functional>
 #include <glm/glm.hpp>
 #include <string>
 
@@ -8,6 +13,7 @@ namespace dm3 {
 
 class windowDriver {
 public:
+    using callbackFn = std::function<void(dm3Event&)>;
 
     inline virtual ~windowDriver() {}
 
@@ -34,6 +40,21 @@ public:
     virtual void maximizeWindow() = 0;
     virtual void restoreWindow() = 0;
     virtual void focusWindow() = 0;
+
+    // * mappings
+    virtual int keyCodeToDM3(const int& t_keyCode) const = 0;
+    virtual int mouseCodeToDM3(const int& t_mouseCode) const = 0;
+
+    inline void setEventFunction(callbackFn t_eventFn) { m_driverData.m_eventFn = t_eventFn; }
+
+protected:
+
+    struct driverData {
+        glm::vec2 m_lastMousePos;
+        bool m_firstMouseMove;
+        callbackFn m_eventFn = [](dm3Event&){};
+    } m_driverData;
+
 };
 
 }
