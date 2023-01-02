@@ -1,3 +1,5 @@
+#include <dm3Config.hpp>
+
 #ifdef _WIN32
     #ifdef _WIN64
         #define DM3_PLATFORM_WINDOWS
@@ -31,18 +33,18 @@
 #endif
 
 
-#if defined(DM3_PLATFORM_OSX) || defined(DM3_PLATFORM_LINUX) || defined(DM3_PLATFORM_WINDOWS)
+#ifdef USE_GLFW
     #define DM3_GLFW_COMPATIBLE
 #endif
 
-#if defined(DM3_PLATFORM_OSX) || defined(DM3_PLATFORM_LINUX) || defined(DM3_PLATFORM_WINDOWS)
+#ifdef UES_SDL
     #define DM3_SDL_COMPATIBLE
 #endif
 
-#if defined(DM3_PLATFORM_OSX)
+#ifdef USE_COCOA
     #define DM3_COCOA_COMPATIBLE
 #endif
 
-#if defined(DM3_PLATFORM_WINDOWS)
+#ifdef USE_WIN32
     #define DM3_WIN32_COMPATIBLE
 #endif
