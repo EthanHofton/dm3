@@ -50,10 +50,14 @@ public:
 protected:
 
     struct driverData {
+        windowDriver& m_windowDriver;
+        const std::function<int(const int&)> keyToDM3= std::bind(&windowDriver::keyCodeToDM3, &m_windowDriver, std::placeholders::_1);
+        const std::function<int(const int&)> mouseToDM3= std::bind(&windowDriver::mouseCodeToDM3, &m_windowDriver, std::placeholders::_1);
         glm::vec2 m_lastMousePos;
         bool m_firstMouseMove;
         callbackFn m_eventFn = [](dm3Event&){};
-    } m_driverData;
+        driverData(windowDriver& t_this) : m_windowDriver(t_this) {}
+    } m_driverData = driverData(*this);
 
 };
 

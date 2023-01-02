@@ -134,6 +134,7 @@ void windowDriverGLFW::createWindow(const int &t_width, const int &t_height,
     glfwSetKeyCallback(m_window, [](GLFWwindow *t_window, int t_key,
     int t_scancode, int t_action, int t_mods) {
         driverData &data = *(driverData *)glfwGetWindowUserPointer(t_window);
+        t_key = data.keyToDM3(t_key);
         switch (t_action) {
             case GLFW_PRESS: {
                 keyPressEvent e(t_key, 0);
@@ -161,6 +162,7 @@ void windowDriverGLFW::createWindow(const int &t_width, const int &t_height,
 
     glfwSetMouseButtonCallback(m_window, [](GLFWwindow *t_window, int t_button, int t_action, int t_mods) {
         driverData &data = *(driverData *)glfwGetWindowUserPointer(t_window);
+        t_button = data.mouseToDM3(t_button);
         switch (t_action) {
             case GLFW_PRESS: {
                 mouseButtonPressedEvent e(t_button);
