@@ -3,12 +3,10 @@
 
 #include <dm3/core/window.hpp>
 #include <dm3/core/platformDetect.hpp>
-#include <dm3/windowDrivers/windowDriverGLFW.hpp>
-
-namespace dm3 {
 
 #ifdef DM3_PLATFORM_OSX
-#ifdef DM3_GLFW_COMPATIBLE
+
+namespace dm3 {
 
 class OSXWindow : public window {
 public:
@@ -17,9 +15,8 @@ public:
     OSXWindow(const window::windowProps& t_props);
 };
 
-#endif
-#endif
-
 }
+
+#endif
 
 #endif

@@ -4,9 +4,9 @@
 #include "windowDriver.hpp"
 #include <dm3/core/platformDetect.hpp>
 
-namespace dm3 {
-
 #ifdef DM3_SDL_COMPATIBLE
+
+namespace dm3 {
 
 class windowDriverSDL : public windowDriver {
 public:
@@ -41,8 +41,8 @@ public:
 private:
 };
 
-#endif
-
 }
+
+#endif
 
 #endif

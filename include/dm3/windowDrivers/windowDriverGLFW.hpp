@@ -7,11 +7,11 @@
 #include <dm3/events/keyEvents.hpp>
 #include <dm3/events/mouseEvent.hpp>
 
+#ifdef USE_GLFW
+
+#include <GLFW/glfw3.hpp>
+
 namespace dm3 {
-
-#ifdef DM3_GLFW_COMPATIBLE
-
-#include <GLFW/glfw3.h>
 
 class windowDriverGLFW : public windowDriver {
 public:
@@ -52,8 +52,8 @@ private:
 
 };
 
-#endif
-
 }
+
+#endif
 
 #endif

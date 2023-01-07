@@ -3,9 +3,9 @@
 #include <dm3/windowDrivers/windowDriverGLFW.hpp>
 #include <memory>
 
-namespace dm3 {
+#ifdef USE_GLFW
 
-#ifdef DM3_GLFW_COMPATIBLE
+namespace dm3 {
 
 struct GLFWInitalization {
     static std::shared_ptr<GLFWInitalization> s_instance;
@@ -266,6 +266,6 @@ int windowDriverGLFW::mouseCodeToDM3(const int &t_mouseCode) const {
     return t_mouseCode;
 }
 
-#endif
-
 } // namespace dm3
+
+#endif

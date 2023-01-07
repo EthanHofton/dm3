@@ -47,7 +47,7 @@ public:
 
     inline void setEventFunction(callbackFn t_eventFn) { m_driverData.m_eventFn = t_eventFn; }
 
-protected:
+public:
 
     struct driverData {
         windowDriver& m_windowDriver;
@@ -57,7 +57,11 @@ protected:
         bool m_firstMouseMove;
         callbackFn m_eventFn = [](dm3Event&){};
         driverData(windowDriver& t_this) : m_windowDriver(t_this) {}
-    } m_driverData = driverData(*this);
+    };
+
+protected:
+
+     driverData m_driverData = driverData(*this);
 
 };
 
