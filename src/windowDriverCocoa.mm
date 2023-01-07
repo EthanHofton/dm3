@@ -51,7 +51,7 @@ bool windowDriverCocoa::shouldCloseWindow() const {
 }
 void windowDriverCocoa::setWindowSize(const glm::vec2& t_size) {}
 void windowDriverCocoa::setWindowPos(const glm::vec2& t_pos) {}
-void windowDriverCocoa::setWindowTitle(const std::string& t_title) {}
+void windowDriverCocoa::setWindowTitle(const std::string& t_title) { [m_window setTitle: [NSString stringWithUTF8String:t_title.c_str()]]; }
 void windowDriverCocoa::setWindowIcon(const std::string& t_iconFile) {}
 void windowDriverCocoa::setWindowSwapInterval(const int& t_swapInterval) {}
 glm::vec2 windowDriverCocoa::getWindowSize() const { return {}; }
