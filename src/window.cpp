@@ -29,7 +29,7 @@ void window::run() {
             // * imgui layer stuff
 
             // * call on window update
-            windowUpdateEvent e;
+            windowUpdateEvent e(m_timer.getDeltaTime());
             m_driver->sendEvent(e);
         }
 

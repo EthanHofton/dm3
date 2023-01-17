@@ -58,9 +58,15 @@ public:
 
 class windowUpdateEvent : public dm3Event {
 public:
-    windowUpdateEvent() {}
+    windowUpdateEvent(double t_deltaTime) : m_deltaTime(t_deltaTime) {}
+
+    inline double getDataTime() { return m_deltaTime; }
 
     EVENT_CLASS_TYPE(dm3EventTypes, onUpdate)
+
+private:
+
+    double m_deltaTime;
 };
 
 
