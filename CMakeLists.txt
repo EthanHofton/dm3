@@ -7,9 +7,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 file(GLOB SOURCES "src/*.cpp")
 
-option(USE_GLFW  "Use GLFW as a windowing API"  OFF)
+option(USE_GLFW  "Use GLFW as a windowing API"  ON)
 option(USE_SDL   "Use SDL as a windowing API"   OFF)
-option(USE_COCOA "use COCOA as a windowing API" ON)
+option(USE_COCOA "use COCOA as a windowing API" OFF)
 option(USE_WIN32 "use WIN32 as a windowing API" OFF)
 
 add_subdirectory("lib/util")

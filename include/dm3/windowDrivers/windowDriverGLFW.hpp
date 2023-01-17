@@ -9,7 +9,7 @@
 
 #ifdef USE_GLFW
 
-#include <GLFW/glfw3.hpp>
+#include <GLFW/glfw3.h>
 
 namespace dm3 {
 

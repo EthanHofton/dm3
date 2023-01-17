@@ -46,6 +46,7 @@ public:
     virtual int mouseCodeToDM3(const int& t_mouseCode) const = 0;
 
     inline void setEventFunction(callbackFn t_eventFn) { m_driverData.m_eventFn = t_eventFn; }
+    void sendEvent(dm3Event& t_event) { m_driverData.m_eventFn(t_event); }
 
 public:
 

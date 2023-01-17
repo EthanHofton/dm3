@@ -1,4 +1,5 @@
 #include <dm3/core/window.hpp>
+#include <dm3/events/windowEvent.hpp>
 
 namespace dm3
 {
@@ -13,6 +14,25 @@ window::~window() {
 
 void window::run() {
     while (!m_driver->shouldCloseWindow()) {
+
+        m_timer.tick();
+
+        // * lock to FPS
+        if (m_timer.getDeltaTime() >= 1.0 / m_fps) {
+            m_timer.reset();
+
+            // * clear framebuffers
+            // * clear color
+            
+            // * loop though layer stack
+
+            // * imgui layer stuff
+
+            // * call on window update
+            windowUpdateEvent e;
+            m_driver->sendEvent(e);
+        }
+
         // * pre-render
         m_driver->preRender();
 

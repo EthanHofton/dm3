@@ -56,6 +56,13 @@ public:
     EVENT_CLASS_TYPE(dm3EventTypes, windowLostFocus)
 };
 
+class windowUpdateEvent : public dm3Event {
+public:
+    windowUpdateEvent() {}
+
+    EVENT_CLASS_TYPE(dm3EventTypes, onUpdate)
+};
+
 
 class windowMovedEvent : public dm3Event {
 public:

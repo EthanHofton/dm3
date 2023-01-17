@@ -7,6 +7,7 @@
 #include <glm/glm.hpp>
 #include <dm3/windowDrivers/windowDriver.hpp>
 #include <util/event.hpp>
+#include <util/timer.hpp>
 
 namespace dm3 {
 
@@ -40,19 +41,25 @@ public:
     inline void setWindowIcon(const std::string& t_iconFile) { m_driver->setWindowIcon(t_iconFile); }
     inline void setWindowSwapInterval(const int& t_swapInterval) { m_driver->setWindowSwapInterval(t_swapInterval); }
     inline void setEventCallback(windowDriver::callbackFn t_callback) { m_driver->setEventFunction(t_callback); }
+    inline void setFPS(const int& t_fps) { m_fps = t_fps; }
 
     inline glm::vec2 getWindowSize() const { return m_driver->getWindowSize(); }
     inline glm::vec2 getWindowPos() const { return m_driver->getWindowPos(); }
+    inline float getFPS() const { return m_fps; }
 
     inline void maxamizeWindow() { m_driver->maximizeWindow(); }
     inline void minamizeWindow() { m_driver->minimizeWindow(); }
     inline void restoreWindow() { m_driver->restoreWindow(); }
     inline void focusWindow() { m_driver->focusWindow(); }
 
-
 protected:
 
     std::shared_ptr<windowDriver> m_driver;
+    float m_fps = 120.0f;
+
+private:
+
+    util::manual_timer m_timer;
 };
 
 }
