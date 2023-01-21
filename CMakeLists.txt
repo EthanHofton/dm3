@@ -14,6 +14,7 @@ option(USE_WIN32 "use WIN32 as a windowing API" OFF)
 
 add_subdirectory("lib/util")
 add_subdirectory("lib/glm")
+add_subdirectory("lib/imgui")
 
 if (APPLE AND NOT IPHONE)
     set(MACOS 1)
@@ -69,4 +70,5 @@ target_include_directories(dm3 PUBLIC ${PROJECT_BINARY_DIR})
 # link libaries
 target_link_libraries(dm3 PUBLIC util)
 target_link_libraries(dm3 PUBLIC glm)
+target_link_libraries(dm3 PUBLIC imgui)
 target_link_libraries(dm3 PRIVATE ${EXTRA_LIBS})

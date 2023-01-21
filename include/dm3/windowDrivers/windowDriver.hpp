@@ -48,6 +48,13 @@ public:
     inline void setEventFunction(callbackFn t_eventFn) { m_driverData.m_eventFn = t_eventFn; }
     void sendEvent(dm3Event& t_event) { m_driverData.m_eventFn(t_event); }
 
+    // * window driver IMGUI impl
+    // virtual void imguiInit() = 0;
+    // virtual void imguiDestory() = 0;
+    // virtual void imguiOnEvent() = 0;
+    // virtual void imguiBegin() = 0;
+    // virtual void imguiEnd() = 0;
+
 public:
 
     struct driverData {
