@@ -1,7 +1,13 @@
 // the configured options and settings for the projects
 #define dm3_VERSION_MAJOR @dm3_VERSION_MAJOR@
 #define dm3_VERSION_MINOR @dm3_VERSION_MINOR@
+
 #cmakedefine USE_GLFW
 #cmakedefine USE_SDL
 #cmakedefine USE_COCOA
 #cmakedefine USE_WIN32
+
+#cmakedefine USE_OPENGL
+#cmakedefine USE_METAL
+#cmakedefine USE_VULKAN
+#cmakedefine USE_DIRECTX

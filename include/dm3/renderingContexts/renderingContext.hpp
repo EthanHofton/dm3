@@ -1,0 +1,12 @@
+#ifndef DM3_RENDERING_CONTEXTS_RENDERING_CONTEXT
+#define DM3_RENDERING_CONTEXTS_RENDERING_CONTEXT
+
+#ifdef USE_OPENGL
+
+namespace dm3 {
+
+}
+
+#endif
+
+#endif

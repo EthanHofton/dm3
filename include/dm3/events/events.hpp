@@ -9,7 +9,7 @@ enum class dm3EventTypes {
     windowClosed, windowMoved, windowResize, windowFocus, windowLostFocus, // * window events
     windowMinimized, windowMaximized, windowRestored,
 
-    onTick, onUpdate, onDraw, onAppBegin, onAppEnd,                       // * dm3 app events
+    onTick, onUpdate, onDraw, onAppBegin, onAppEnd, onAttach, onDetach,   // * dm3 app events
     keyPressed, keyTyped, keyReleased,                                    // * key events
     mouseButtonPressed, mouseButtonReleased, mouseMoved, mouseScrolled    // * mouse events
 };

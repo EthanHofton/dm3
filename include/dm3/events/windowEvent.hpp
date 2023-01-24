@@ -69,6 +69,18 @@ private:
     double m_deltaTime;
 };
 
+class onAttachEvent : public dm3Event {
+public:
+
+    EVENT_CLASS_TYPE(dm3EventTypes, onAttach)
+};
+
+class onDetachEvent : public dm3Event {
+public:
+
+    EVENT_CLASS_TYPE(dm3EventTypes, onDetach)
+};
+
 
 class windowMovedEvent : public dm3Event {
 public:

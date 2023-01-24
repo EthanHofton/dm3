@@ -12,6 +12,11 @@ option(USE_SDL   "Use SDL as a windowing API"   OFF)
 option(USE_COCOA "use COCOA as a windowing API" OFF)
 option(USE_WIN32 "use WIN32 as a windowing API" OFF)
 
+option(USE_OPENGL "Use openGL as the rendering API" ON)
+option(USE_METAL "Use metal as the rendering API" OFF)
+option(USE_VULKAN "Use vulkan as the rendering API" OFF)
+option(USE_DIRECTX "Use directX as the rendering API" OFF)
+
 add_subdirectory("lib/util")
 add_subdirectory("lib/glm")
 add_subdirectory("lib/imgui")
@@ -19,7 +24,6 @@ add_subdirectory("lib/imgui")
 if (APPLE AND NOT IPHONE)
     set(MACOS 1)
 endif()
-
 
 if (USE_SDL)
     add_subdirectory("lib/sdl")
@@ -57,6 +61,11 @@ if (USE_GLFW)
     add_subdirectory("lib/glfw")
     message("-- GLFW enalbled")
     list(APPEND EXTRA_LIBS glfw)
+endif()
+
+if (USE_OPENGL)
+    find_package(OpenGL REQUIRED)
+    list(APPEND EXTRA_LIBS ${OPENGL_LIBRARIES})
 endif()
 
 configure_file(dm3Config.hpp.in dm3Config.hpp)
